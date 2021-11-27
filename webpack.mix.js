@@ -10,6 +10,10 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.webpackConfig({
+  output: {
+    chunkFilename: 'dist/chunks/[name].js',
+  }
+});
+mix.js('resources/vue/main.js', 'dist')
+  .sass('resources/vue/assets/css/main.scss', 'dist');
