@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
-
+require('./webpack.extend');
+require('laravel-mix-eslint-config');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -15,5 +16,10 @@ mix.webpackConfig({
     chunkFilename: 'dist/chunks/[name].js',
   }
 });
-mix.js('resources/vue/main.js', 'dist')
-  .sass('resources/vue/assets/css/main.scss', 'dist');
+
+
+mix.extendConfig()
+
+mix.vue({version: 2})
+
+mix.js('resources/vue/main.js', 'public/dist')
