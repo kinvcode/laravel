@@ -1,3 +1,4 @@
 .user.ini
 .well-known
 mix-manifest.json
+/filespace
