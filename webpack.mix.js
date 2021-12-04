@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 require('./webpack.extend');
-require('laravel-mix-eslint-config');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

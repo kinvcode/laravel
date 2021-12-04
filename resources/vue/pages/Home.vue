@@ -3,18 +3,25 @@
   <div class="hello">
     <h1>首页</h1>
     <p>message: {{ $t('hello') }}</p>
+    <el-row>
+      <el-button type="info" @click="init">获取版本信息</el-button>
+      <el-button type="primary" @click="login">登录</el-button>
+      <el-button type="success" @click="getMeInfo">获取我的信息</el-button>
+    </el-row>
+    <div>当前版本：{{version}}</div>
   </div>
 </template>
 
 
 <script>
-import {getVersion}      from "../server";
-import {Loading, Button} from 'element-ui';
+import {getVersion,login,getMe}           from "../server";
+import {Button, Row} from 'element-ui';
 
 export default {
-    name: 'Home',
+    name: 'HomePage',
     components: {
         'el-button': Button,
+        'el-row': Row,
     },
     data() {
         return {
@@ -23,15 +30,33 @@ export default {
     },
     methods: {
         init() {
-            getVersion().then(response => {
-                console.log(response);
-            }).catch(error => {
-                console.log(error);
-            });
+            getVersion().then((response) => {
+                this.version = response.version;
+            })
         },
+        login(){
+            login({
+                email:'396981577@qq.com',
+                password:'123456qqWW'
+            }).then((response)=>{
+                sessionStorage.setItem('token', response.access_token);
+            }).catch((error)=>{
+                console.log(error);
+            })
+        },
+        getMeInfo(){
+            getMe().then((response)=>{
+                console.log(response);
+            }).catch((error)=>{
+                console.log(error);
+            })
+        }
     },
     created() {
         this.init();
+    },
+    mounted() {
+
     }
 }
 </script>

@@ -7,16 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class LoginRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -24,7 +14,13 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => [
+                'required',
+                'regex:/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/',
+                'max:100',
+                'exists:users'
+            ],
+            'password' => ['required', 'regex:/^(?=.*[A-Z])(?=.*[a-z])[0-9a-zA-Z!@#$%^&*,\\.]{8,15}$/'],
         ];
     }
 }

@@ -4,17 +4,14 @@
     "node": true
   },
   "extends": "plugin:vue/essential",
-  "parserOptions": {
-//    "parser": "babel-eslint"
-  },
+  "parserOptions": {},
   "plugins": [
     "vue"
   ],
   "rules": {
-    "arrow-parens": 0,
-    "generator-star-spacing": 0,
-    "no-unused-vars": "error",
-    "indent": [2, 4, { "SwitchCase": 1 }],
+    "arrow-parens": ["error", "always"],
+    "no-unused-vars": "error", // 禁止未使用的变量
+    "indent": ["error", 4, { "SwitchCase": 1 }],  // 强制缩进
     "space-before-function-paren": ["error", "never"]
   }
 }

@@ -2,6 +2,7 @@ import Vue     from 'vue'
 import router  from './routers'
 import {isDev} from "./utils/config"
 import VueI18n from 'vue-i18n'
+import store from './store'
 
 Vue.config.productionTip = isDev
 Vue.use(VueI18n)
@@ -18,11 +19,7 @@ new Vue({
     el: '#app',
     i18n,
     router,
-    data() {
-        return {
-            locale: 'en',
-        }
-    },
+    store,
     methods: {
         changeLanguage(lang) {
             switch (lang) {
@@ -30,9 +27,11 @@ new Vue({
                 case 'zh-HK':
                 case 'en':
                     this.$i18n.locale = lang
+                    sessionStorage.setItem('locale', lang);
                     break;
                 default:
                     this.$i18n.locale = 'en'
+                    sessionStorage.setItem('locale', 'en');
                     break;
             }
         },
