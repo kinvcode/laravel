@@ -8,6 +8,13 @@
 * 使用 HTTP Status Code 表示状态
 * 时间格式：yyyy-MM-dd HH:mm:ss, 如”2007-06-28 11:16:11”
 
+### URI命名规范
+* 规则1：URI结尾不应包含（/）
+* 规则2：正斜杠分隔符（/）必须用来指示层级关系
+* 规则3：应使用连字符（ - ）来提高URI的可读性
+* 规则4：不得在URI中使用下划线（_）
+* 规则5：URI路径中全都使用小写字母
+
 ### ⽤ HTTP 动词描述操作
 
 > 常⽤的动词及幂等性
@@ -55,32 +62,16 @@ xxx | xxx | xxx | xxx
 ### 局部响应码
 > 局部响应指具体的API，比如登录接口，注册接口。
 
-局部响应不在此规范中声明，应当在具体项目的API文档中给出具体解释
+局部响应不在此规范中声明，应当在具体项目的API文档（swagger）中给出具体解释
 
 #### 关于需要反馈结果的API响应体结构
 >此响应体结构仅供参考，具体做法应当根据实际业务做调整
-##### 成功
-```json
-{
-  "status": 0,
-  "message": "success"
-}
-```
-或
-```json
-{
-  "status": 0,
-  "message": "success",
-  "data": {}
-}
-```
-
-##### 失败
+登录失败
 ```json
 {
   "status": -1,
-  "message": "fail",
-  "request": "GET /api/v1/me"
+  "message": "Email and password do not match.",
+  "request": "POST /api/v1/auth/login"
 }
 ```
 

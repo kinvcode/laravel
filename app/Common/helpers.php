@@ -14,29 +14,19 @@ if (!function_exists('error_response')) {
 }
 
 if (!function_exists('success_response')) {
-    function success_response(string $message = 'success'): JsonResponse
+    function success_response(array $data): JsonResponse
     {
-        return response()->json([
-            'message' => $message,
-            'code' => 0
-        ]);
+        return response()->json($data);
     }
 }
 
 if (!function_exists('fail_response')) {
-    function fail_response(string $message, int $status): JsonResponse
+    function fail_response(string $message, $code, int $status): JsonResponse
     {
         return response()->json([
             'message' => $message,
-            'code' => -1,
+            'code' => $code,
             'request' => request()->getMethod() . ' ' . request()->path()
         ], $status);
-    }
-}
-
-if (!function_exists('json_response')) {
-    function json_response(array $data): JsonResponse
-    {
-        return response()->json($data);
     }
 }

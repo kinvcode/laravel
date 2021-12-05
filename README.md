@@ -19,6 +19,9 @@ php artisan upload:link
 
 // 执行数据迁移文件
 php artisan migrate
+
+// 【临时】复制一份前端的环境配置文件
+cp resources/vue/utils/env.js.example resources/vue/utils/env.js
 ```
 
 ## 前端开发人员需要阅读的文档
@@ -28,3 +31,4 @@ php artisan migrate
 ## 后端开发人员需要阅读的文档
 * [RESTFULL API文档](./Docs/rest_api.md)
 * [PHP开发文档](./Docs/php_developer.md)
+* [SwaggerAPI文档开发指南](./Docs/OpenAPI.md)
