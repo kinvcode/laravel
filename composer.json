@@ -7,6 +7,12 @@
         "laravel"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "kinvcode",
+            "email": "kinvcode@gmail.com"
+        }
+    ],
     "require": {
         "php": "^7.2.5|^8.0",
         "fideloper/proxy": "^4.4",
