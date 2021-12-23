@@ -2,3 +2,9 @@
 .well-known
 mix-manifest.json
 /filespace
+/dist
+/main.js
+/fonts
+/js
+/images
+/video

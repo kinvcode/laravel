@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 require('./webpack.extend');
 /*
  |--------------------------------------------------------------------------
@@ -11,26 +12,62 @@ require('./webpack.extend');
  |
  */
 
-// 设置输出目录
-mix.setPublicPath('public/dist');
-
-// js切片
-mix.webpackConfig({
-    output: {
-        chunkFilename: 'chunks/[name].js',
-    },
-});
-
-// 仅为解决Element-UI无法加载字体
-mix.options({fileLoaderDirs: {fonts: 'dist/fonts'}});
-
-// element按需引入配置
-mix.element()
-
 // vue-i18n单文件组件配置
 mix.i18n()
 
 // 支持vue单文件组件
 mix.vue({version: 2})
 
-mix.js('resources/vue/main.js', 'public/dist')
+// js切片
+mix
+  .js('resources/vue/main.js', 'main.js')
+  .webpackConfig({
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'resources/vue/'),
+      }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            {
+              loader: 'sass-loader',
+              options: {
+                sassOptions: {
+                  includePaths: ['node_modules', 'resources/vue/assets']
+                },
+              }
+            }
+          ]
+        },
+        // {
+        //   test: /\.(png|jpg|gif)$/,
+        //   use: [
+        //     {
+        //       loader: 'file-loader',
+        //       options: {
+        //         name: '[path][hash].[ext]',
+        //       },
+        //     },
+        //   ],
+        // },
+        {
+          test: /\.mp4$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: "[hash].[ext]",
+                outputPath: "video"
+              }
+            }
+          ],
+        },
+      ]
+    },
+    output: {
+      chunkFilename: 'js/chunks/[name].[chunkhash].js',
+    },
+  });

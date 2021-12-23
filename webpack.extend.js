@@ -1,24 +1,5 @@
 let mix = require('laravel-mix');
 
-class Element {
-  babelConfig () {
-    return {
-      "presets": [["@babel/preset-env", {"modules": false}]],
-      "plugins": [
-        [
-          "component",
-          {
-            "libraryName": "element-ui",
-            "styleLibraryName": "theme-chalk",
-          }
-        ]
-      ],
-    };
-  }
-}
-
-mix.extend('element', new Element());
-
 class i18n {
   webpackRules () {
     return [

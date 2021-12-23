@@ -10,5 +10,5 @@
         <router-view></router-view>
     </div>
 </body>
-<script type="module" src="/dist/main.js"></script>
+<script type="module" src="/main.js"></script>
 </html>

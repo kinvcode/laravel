@@ -8,11 +8,11 @@ let router = new Router({
     routes: [
         {
             path: '/',
-            component: () => import('./pages/Home')
+            component: () => import('./pages/Home.vue')
         },
         {
             path: '/home/user',
-            component: () => import('./pages/User')
+            component: () => import('./pages/User.vue')
         },
         {
             path: '/home',

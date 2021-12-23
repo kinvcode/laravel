@@ -8,59 +8,65 @@
       <el-button type="primary" @click="login">登录</el-button>
       <el-button type="success" @click="getMeInfo">获取我的信息</el-button>
     </el-row>
-    <div>当前版本：{{version}}</div>
+    <div>当前版本：{{ version }}</div>
+    <div class="foo">自定义字体文件</div>
+    <video controls style="width: 20%;" :src="video"></video>
+    <img :src="img" alt="">
   </div>
 </template>
 
 
 <script>
-import {getVersion,login,getMe}           from "../server";
-import {Button, Row} from 'element-ui';
+import {getVersion, login, getMe} from "../server";
 
+import testVideo from '@/assets/audio/logo_animation.mp4';
+import image from '@/assets/images/primary.png';
 export default {
-    name: 'HomePage',
-    components: {
-        'el-button': Button,
-        'el-row': Row,
-    },
-    data() {
-        return {
-            version: null,
-        }
-    },
-    methods: {
-        init() {
-            getVersion().then((response) => {
-                this.version = response.version;
-            })
-        },
-        login(){
-            login({
-                email:'396981577@qq.com',
-                password:'123456qqWW'
-            }).then((response)=>{
-                sessionStorage.setItem('token', response.access_token);
-            }).catch((error)=>{
-                console.log(error);
-            })
-        },
-        getMeInfo(){
-            getMe().then((response)=>{
-                console.log(response);
-            }).catch((error)=>{
-                console.log(error);
-            })
-        }
-    },
-    created() {
-        this.init();
-    },
-    mounted() {
-
+  name: 'HomePage',
+  data () {
+    return {
+      version: null,
+      img: image,
+      video: testVideo
     }
+  },
+  methods: {
+    init () {
+      getVersion().then((response) => {
+        this.version = response.version;
+      })
+    },
+    login () {
+      login({
+        email: '396981577@qq.com',
+        password: '123456qqWW'
+      }).then((response) => {
+        sessionStorage.setItem('token', response.access_token);
+      }).catch((error) => {
+        console.log(error);
+      })
+    },
+    getMeInfo () {
+      getMe().then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+  },
+  created () {
+    this.init();
+  },
+  mounted () {
+
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/css/global.scss";
+
+.foo {
+  font-family: GenSenMaruGothicTW-Bold;
+}
 </style>

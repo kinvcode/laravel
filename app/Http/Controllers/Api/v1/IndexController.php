@@ -10,6 +10,6 @@ class IndexController extends Controller
 {
     public function version(): JsonResponse
     {
-        return json_response(['version' => '1.0.0']);
+        return success_response(['version' => '1.0.0']);
     }
 }
