@@ -66,3 +66,6 @@ mix
       chunkFilename: 'js/chunks/[name].[chunkhash].js',
     },
   });
+mix.options({
+  processCssUrls: false
+});

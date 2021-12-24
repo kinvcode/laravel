@@ -13,6 +13,7 @@
     <video controls style="width: 20%;" src="@/assets/audio/logo_animation.mp4"></video>
     <img src="@/assets/images/primary.png" alt="">
     <img src="@/assets/images/ext/primary.png" alt="">
+    <div class="box"></div>
   </div>
 </template>
 
@@ -26,7 +27,6 @@ export default {
     return {
       version: null,
       // img: image,
-      video: testVideo
     }
   },
   methods: {
@@ -67,5 +67,11 @@ export default {
 
 .foo {
   font-family: GenSenMaruGothicTW-Bold;
+}
+
+.box {
+  width: 50%;
+  height: 200px;
+  background-image: url("../assets/images/tt.jpg");
 }
 </style>
