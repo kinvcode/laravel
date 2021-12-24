@@ -15,9 +15,6 @@ require('./webpack.extend');
 // vue-i18n单文件组件配置
 mix.i18n()
 
-// 支持vue单文件组件
-mix.vue({version: 2})
-
 // js切片
 mix
   .js('resources/vue/main.js', 'main.js')
@@ -42,17 +39,15 @@ mix
             }
           ]
         },
-        // {
-        //   test: /\.(png|jpg|gif)$/,
-        //   use: [
-        //     {
-        //       loader: 'file-loader',
-        //       options: {
-        //         name: '[path][hash].[ext]',
-        //       },
-        //     },
-        //   ],
-        // },
+        {
+          test: /(\.(png|jpe?g|gif|webp)$|^((?!font).)*\.svg$)/,
+          loaders: {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[hash].[ext]',
+            }
+          }
+        },
         {
           test: /\.mp4$/,
           use: [

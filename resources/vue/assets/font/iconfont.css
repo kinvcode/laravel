@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'GenSenMaruGothicTW-Bold';
-    src: url('../GenSenMaruGothicTW/GenSenMaruGothicTW-Bold.ttf');
+    src: url('./GenSenMaruGothicTW/GenSenMaruGothicTW-Bold.ttf');
     font-weight: normal;
     font-style: normal;
 }

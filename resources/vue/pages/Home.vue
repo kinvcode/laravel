@@ -10,8 +10,9 @@
     </el-row>
     <div>当前版本：{{ version }}</div>
     <div class="foo">自定义字体文件</div>
-    <video controls style="width: 20%;" :src="video"></video>
-    <img :src="img" alt="">
+    <video controls style="width: 20%;" src="@/assets/audio/logo_animation.mp4"></video>
+    <img src="@/assets/images/primary.png" alt="">
+    <img src="@/assets/images/ext/primary.png" alt="">
   </div>
 </template>
 
@@ -19,14 +20,12 @@
 <script>
 import {getVersion, login, getMe} from "../server";
 
-import testVideo from '@/assets/audio/logo_animation.mp4';
-import image from '@/assets/images/primary.png';
 export default {
   name: 'HomePage',
   data () {
     return {
       version: null,
-      img: image,
+      // img: image,
       video: testVideo
     }
   },
