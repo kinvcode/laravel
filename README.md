@@ -22,6 +22,12 @@ php artisan migrate
 
 // 【临时】复制一份前端的环境配置文件
 cp resources/vue/utils/env.js.example resources/vue/utils/env.js
+
+// 安装前端依赖
+yarn
+
+// 编译前端资源
+yarn dev
 ```
 
 ## 前端开发人员需要阅读的文档

@@ -9,10 +9,6 @@
       <el-button type="success" @click="getMeInfo">获取我的信息</el-button>
     </el-row>
     <div>当前版本：{{ version }}</div>
-    <div class="foo">自定义字体文件</div>
-    <video controls style="width: 20%;" src="@/assets/audio/logo_animation.mp4"></video>
-    <img src="@/assets/images/primary.png" alt="">
-    <img src="@/assets/images/ext/primary.png" alt="">
     <div class="box"></div>
   </div>
 </template>
@@ -26,7 +22,6 @@ export default {
   data () {
     return {
       version: null,
-      // img: image,
     }
   },
   methods: {
@@ -64,14 +59,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/css/global.scss";
-
-.foo {
-  font-family: GenSenMaruGothicTW-Bold;
-}
-
-.box {
-  width: 50%;
-  height: 200px;
-  background-image: url("../assets/images/tt.jpg");
-}
 </style>
