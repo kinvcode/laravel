@@ -2,7 +2,7 @@ import http from './http.js'
 
 export function getVersion(data) {
     return http({
-        url: '/version',
+        url: '/api/home/version',
         method: 'get',
         data
     })
@@ -10,7 +10,7 @@ export function getVersion(data) {
 
 export function login(data) {
     return http({
-        url: '/auth/login',
+        url: '/api/home/auth/login',
         method: 'post',
         data
     })
@@ -18,7 +18,7 @@ export function login(data) {
 
 export function getMe(data) {
     return http({
-        url: '/auth/me',
+        url: '/api/home/auth/me',
         method: 'get',
         data
     })

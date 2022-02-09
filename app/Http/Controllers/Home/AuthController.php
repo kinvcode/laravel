@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
@@ -11,6 +11,11 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function auth;
+use function fail_response;
+use function request;
+use function response;
+use function success_response;
 
 class AuthController extends Controller
 {
@@ -87,6 +92,6 @@ class AuthController extends Controller
      */
     public function me(): JsonResponse
     {
-        return success_response(auth('api')->user());
+        return success_response(auth('api')->user()->toArray());
     }
 }

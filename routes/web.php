@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 Route::view('/home/{query?}', 'welcome')->where('query', '.*');
+Route::view('/admin/{query?}', 'welcome')->where('query', '.*');

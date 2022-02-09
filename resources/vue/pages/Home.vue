@@ -7,6 +7,7 @@
       <el-button type="info" @click="init">获取版本信息</el-button>
       <el-button type="primary" @click="login">登录</el-button>
       <el-button type="success" @click="getMeInfo">获取我的信息</el-button>
+      <el-button type="success" @click="jumpAdmin">进入后台</el-button>
     </el-row>
     <div>当前版本：{{ version }}</div>
     <div class="box"></div>
@@ -46,7 +47,10 @@ export default {
       }).catch((error) => {
         console.log(error);
       })
-    }
+    },
+    jumpAdmin(){
+        this.$router.push({path:'/admin'});
+    },
   },
   created () {
     this.init();

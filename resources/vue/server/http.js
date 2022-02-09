@@ -64,30 +64,21 @@ service.interceptors.response.use(
         loading.close();
         let status = error.response.status;
         let data = error.response.data;
-        switch (status) {
-            case 401:
+        let code = error.response.data.code;
+        switch (code) {
+            case 40001:
                 // 跳转到login界面
                 Message.error(data.message);
                 break;
-            case 422:
-                // 处理参数验证失败
-                Message.warning(data.message);
-                break;
-            case 429:
+            case 40029:
                 // 处理请求频繁
                 Message.error(data.message);
                 break;
-            case 403:
-                // 处理访问被拒绝
-                break;
-            case 404:
+            case 40004:
                 // 处理资源未找到
                 Message.info(data.message);
                 break;
-            case 415:
-                // 处理请求类型错误
-                break;
-            case 500:
+            case 50000:
             default:
                 // 处理服务器错误或其他错误
                 Message.error('unknown error.');
