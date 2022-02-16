@@ -1,8 +1,8 @@
 import Vue     from 'vue'
-import router  from './routers'
-import {isDev} from "./utils/config"
+import router  from '@/router'
+import {isDev} from "@/utils/config"
 import VueI18n from 'vue-i18n'
-import store from './store'
+import store from '@/store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -31,8 +31,8 @@ new Vue({
     methods: {
         changeLanguage(lang) {
             switch (lang) {
-                case 'zh-CN':
-                case 'zh-HK':
+                case 'zh_CN':
+                case 'zh_HK':
                 case 'en':
                     this.$i18n.locale = lang
                     sessionStorage.setItem('locale', lang);

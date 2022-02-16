@@ -19,45 +19,45 @@
 import {getVersion, login, getMe} from "../server";
 
 export default {
-  name: 'HomePage',
-  data () {
-    return {
-      version: null,
-    }
-  },
-  methods: {
-    init () {
-      getVersion().then((response) => {
-        this.version = response.version;
-      })
+    name: 'HomePage',
+    data() {
+        return {
+            version: null,
+        }
     },
-    login () {
-      login({
-        email: '396981577@qq.com',
-        password: '123456qqWW'
-      }).then((response) => {
-        sessionStorage.setItem('token', response.access_token);
-      }).catch((error) => {
-        console.log(error);
-      })
+    methods: {
+        init() {
+            getVersion().then((response) => {
+                this.version = response.version;
+            })
+        },
+        login() {
+            login({
+                email: '396981577@qq.com',
+                password: '123456qqWW'
+            }).then((response) => {
+                sessionStorage.setItem('token', response.access_token);
+            }).catch((error) => {
+                console.log(error);
+            })
+        },
+        getMeInfo() {
+            getMe().then((response) => {
+                console.log(response);
+            }).catch((error) => {
+                console.log(error);
+            })
+        },
+        jumpAdmin(){
+            this.$router.push({path:'/admin'});
+        },
     },
-    getMeInfo () {
-      getMe().then((response) => {
-        console.log(response);
-      }).catch((error) => {
-        console.log(error);
-      })
+    created() {
+        this.init();
     },
-    jumpAdmin(){
-        this.$router.push({path:'/admin'});
-    },
-  },
-  created () {
-    this.init();
-  },
-  mounted () {
+    mounted() {
 
-  }
+    }
 }
 </script>
 

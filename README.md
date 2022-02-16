@@ -33,6 +33,7 @@ yarn dev
 ## 前端开发人员需要阅读的文档
 * [RESTFULL API文档](./Docs/rest_api.md)
 * [WEB开发文档](./Docs/web_developer.md)
+* [路由权限映射表](./Docs/web_ability.md)
 
 ## 后端开发人员需要阅读的文档
 * [RESTFULL API文档](./Docs/rest_api.md)

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './pages/Home'; // 【重要】不可删除
+import { canNavigate } from '@/libs/acl/routeProtection'
+
+
 Vue.use(Router)
 
 const routerView = {
@@ -13,7 +15,7 @@ let router = new Router({
         {
             path: '/',
             name: 'home',
-            component: () => import('./pages/Home.vue')
+            component: () => import('@/pages/Home.vue')
         },
         {
             path: '/home',
@@ -23,7 +25,7 @@ let router = new Router({
                 {
                     path: 'user',
                     name: 'home.user',
-                    component: () => import('./pages/User.vue')
+                    component: () => import('@/pages/User.vue')
                 },
             ]
         },
@@ -40,7 +42,7 @@ let router = new Router({
                 {
                     path: 'dashboard',
                     name: 'admin.dashboard',
-                    component: () => import('./pages/admin/Index.vue')
+                    component: () => import('@/pages/admin/Index.vue')
                 }
             ]
         },
@@ -48,8 +50,7 @@ let router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    console.log(to);
-    console.log(from);
+    console.log(canNavigate(to));
     next();
 })
 
